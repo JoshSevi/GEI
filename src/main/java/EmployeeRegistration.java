@@ -1,72 +1,27 @@
-import javax.sql.DataSource;
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.Scanner;
 
 public class EmployeeRegistration {
-    private final DataSource dataSource;
 
-    // JDBC URL for connecting to MySQL
-    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/im_gei";
+    public static void insertEmployee(Connection connection) throws SQLException {
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.print("Enter Employee Name: ");
+            String employeeName = scanner.nextLine();
 
-    public EmployeeRegistration(DataSource dataSource) {
-        this.dataSource = dataSource;
-    }
+            System.out.print("Enter Contact Number: ");
+            String contactNumber = scanner.nextLine();
 
-    public void registerEmployee(String name, String contactNumber, String gender, String dateOfBirth) {
-        try (Connection connection = dataSource.getConnection()) {
-            // SQL query to insert employee
-            String sql = "INSERT INTO employees (name, contact_number, gender, date_of_birth) VALUES (?, ?, ?, ?)";
+            System.out.print("Enter Gender: ");
+            String gender = scanner.nextLine();
 
-            try (PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-                statement.setString(1, name);
-                statement.setString(2, contactNumber);
-                statement.setString(3, gender);
-                statement.setDate(4, Date.valueOf(dateOfBirth));
+            System.out.print("Enter Date of Birth (YYYY-MM-DD): ");
+            String dateOfBirth = scanner.nextLine();
 
-                // Execute the query
-                int rowsAffected = statement.executeUpdate();
+            System.out.print("Enter Job Type (Regular/Piecework/Admin): ");
+            String jobTypeDescription = scanner.nextLine().toLowerCase();
 
-                if (rowsAffected > 0) {
-                    ResultSet generatedKeys = statement.getGeneratedKeys();
-                    if (generatedKeys.next()) {
-                        int generatedId = generatedKeys.getInt(1);
-                        System.out.println("Employee registered with ID: " + generatedId);
-                    }
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
+            Employee.insertEmployee(connection, employeeName, contactNumber, gender, dateOfBirth, jobTypeDescription);
         }
-    }
-
-    public List<Employee> getAllEmployees() {
-        List<Employee> employees = new ArrayList<>();
-
-        try (Connection connection = dataSource.getConnection()) {
-            // SQL query to select all employees
-            String sql = "SELECT * FROM employees";
-
-            try (Statement statement = connection.createStatement()) {
-                // Execute the query
-                ResultSet resultSet = statement.executeQuery(sql);
-
-                // Process the result set
-                while (resultSet.next()) {
-                    int id = resultSet.getInt("id");
-                    String name = resultSet.getString("name");
-                    String contactNumber = resultSet.getString("contact_number");
-                    String gender = resultSet.getString("gender");
-                    String dateOfBirth = resultSet.getString("date_of_birth");
-
-                    Employee employee = new Employee(id, name, contactNumber, gender, dateOfBirth);
-                    employees.add(employee);
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return employees;
     }
 }

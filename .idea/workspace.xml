@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6446492b-9f12-4e7f-ba73-ebeb5d523b02" name="Changes" comment="register employee">
+      <change afterPath="$PROJECT_DIR$/src/main/java/DatabaseConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/cbc0bab0-482d-4200-9f77-729dcecb6040.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/cbc0bab0-482d-4200-9f77-729dcecb6040.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/EmployeeRegistration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EmployeeRegistration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +79,9 @@
       <updated>1708775100787</updated>
       <workItem from="1708775101844" duration="2602000" />
       <workItem from="1708778800890" duration="92000" />
+      <workItem from="1708779053442" duration="458000" />
+      <workItem from="1708779639274" duration="828000" />
+      <workItem from="1708783434208" duration="3582000" />
     </task>
     <task id="LOCAL-00001" summary="register employee">
       <option name="closed" value="true" />
@@ -92,7 +102,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
