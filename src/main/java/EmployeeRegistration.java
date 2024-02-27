@@ -4,24 +4,42 @@ import java.util.Scanner;
 
 public class EmployeeRegistration {
 
-    public static void insertEmployee(Connection connection) throws SQLException {
+    public static void mainMenu(Connection connection) {
         try (Scanner scanner = new Scanner(System.in)) {
-            System.out.print("Enter Employee Name: ");
-            String employeeName = scanner.nextLine();
+            while (true) {
+                System.out.println("Employee Management System");
+                System.out.println("1. Create Employee");
+                System.out.println("2. Read Employee");
+                System.out.println("3. Update Employee");
+                System.out.println("4. Delete Employee");
+                System.out.println("0. Exit");
 
-            System.out.print("Enter Contact Number: ");
-            String contactNumber = scanner.nextLine();
+                System.out.print("Enter your choice: ");
+                int choice = scanner.nextInt();
+                scanner.nextLine();
 
-            System.out.print("Enter Gender: ");
-            String gender = scanner.nextLine();
-
-            System.out.print("Enter Date of Birth (YYYY-MM-DD): ");
-            String dateOfBirth = scanner.nextLine();
-
-            System.out.print("Enter Job Type (Regular/Piecework/Admin): ");
-            String jobTypeDescription = scanner.nextLine().toLowerCase();
-
-            Employee.insertEmployee(connection, employeeName, contactNumber, gender, dateOfBirth, jobTypeDescription);
+                switch (choice) {
+                    case 1:
+                        EmployeeDAO.createEmployee(connection);
+                        break;
+                    case 2:
+                        EmployeeDAO.readEmployee(connection);
+                        break;
+                    case 3:
+                        EmployeeDAO.updateEmployee(connection);
+                        break;
+                    case 4:
+                        EmployeeDAO.deleteEmployee(connection);
+                        break;
+                    case 0:
+                        System.out.println("Exiting Employee Management System. Goodbye!");
+                        System.exit(0);
+                        break;
+                    default:
+                        System.out.println("Invalid choice. Please enter a valid option.");
+                        break;
+                }
+            }
         }
     }
 }

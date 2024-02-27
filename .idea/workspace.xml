@@ -4,16 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6446492b-9f12-4e7f-ba73-ebeb5d523b02" name="Changes" comment="register employee">
-      <change afterPath="$PROJECT_DIR$/src/main/java/DatabaseConnector.java" afterDir="false" />
+    <list default="true" id="6446492b-9f12-4e7f-ba73-ebeb5d523b02" name="Changes" comment="Register employee with job types">
+      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/EmployeeDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/InputCalculations.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/PackType.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Poop.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/cbc0bab0-482d-4200-9f77-729dcecb6040.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/cbc0bab0-482d-4200-9f77-729dcecb6040.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
+    <list id="9ecffd75-8f61-4028-8a2a-86dadd1c6086" name="Changes by kenji" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Employee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/EmployeeRegistration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EmployeeRegistration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
     </list>
+    <list id="d097e065-e2af-40dd-88ca-36bef4b329f7" name="Changes by keo" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,12 +29,28 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Kotlin Class" />
+        <option value="Kotlin File" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;JoshSevi&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="6fb88c55-7fd4-4b58-8758-b7d470f0e620" />
+        <option name="url" value="https://github.com/JoshSevi/GEI.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -43,6 +66,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin.PackTypeKt.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
@@ -54,6 +78,7 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;onboarding.tips.debug.path&quot;: &quot;/Users/sevi/School/IM/GEI/src/main/java/org/example/Main.java&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -81,7 +106,10 @@
       <workItem from="1708778800890" duration="92000" />
       <workItem from="1708779053442" duration="458000" />
       <workItem from="1708779639274" duration="828000" />
-      <workItem from="1708783434208" duration="3582000" />
+      <workItem from="1708783434208" duration="4918000" />
+      <workItem from="1708924688954" duration="4152000" />
+      <workItem from="1708933236467" duration="2622000" />
+      <workItem from="1709003788416" duration="1513000" />
     </task>
     <task id="LOCAL-00001" summary="register employee">
       <option name="closed" value="true" />
@@ -91,7 +119,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708778474351</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Register employee with job types">
+      <option name="closed" value="true" />
+      <created>1708788480773</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1708788480773</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,6 +158,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="register employee" />
-    <option name="LAST_COMMIT_MESSAGE" value="register employee" />
+    <MESSAGE value="Register employee with job types" />
+    <option name="LAST_COMMIT_MESSAGE" value="Register employee with job types" />
   </component>
 </project>
