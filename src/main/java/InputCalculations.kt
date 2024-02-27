@@ -5,27 +5,9 @@ import java.sql.SQLException
 
 object PieceworkProcessor {
     @Throws(SQLException::class)
-    fun processPiecework(employeeID: Int, packTypeID: Int, quantity: Int) {
-        val rate = getRateForPackType(packTypeID)
-        val transactionAmount = rate * quantity
-        savePieceworkTransaction(employeeID, packTypeID, quantity, transactionAmount)
-    }
-
-    @Throws(SQLException::class)
-    private fun getRateForPackType(packTypeID: Int): Double {
-        val query = "SELECT Price FROM packtype WHERE PackTypeID = ?"
-        val connection: Connection = DatabaseConnector.getConnection()
-        val statement: PreparedStatement = connection.prepareStatement(query)
-        statement.setInt(1, packTypeID)
-        val resultSet: ResultSet = statement.executeQuery()
-        var rate = 0.0
-        if (resultSet.next()) {
-            rate = resultSet.getDouble("Price")
-        }
-        resultSet.close()
-        statement.close()
-        connection.close()
-        return rate
+    fun processPiecework(employee: Employee, packType: PackType, quantity: Int) {
+        val transactionAmount = packType.rate * quantity
+        savePieceworkTransaction(employee.employeeId, packType.id, quantity, transactionAmount)
     }
 
     @Throws(SQLException::class)
@@ -55,11 +37,34 @@ fun main() {
         println("Enter Quantity:")
         val quantity = readLine()!!.toInt()
 
-        PieceworkProcessor.processPiecework(employeeID, packTypeID, quantity)
-        println("Piecework transaction processed successfully.")
+        val employee = getEmployeeDetails(employeeID)
+        val packType = getPackTypeDetails(packTypeID)
+
+        if (employee != null && packType != null) {
+            PieceworkProcessor.processPiecework(employee, packType, quantity)
+            println("Piecework transaction processed successfully.")
+        } else {
+            println("Employee or PackType not found.")
+        }
     } catch (e: NumberFormatException) {
         println("Invalid input. Please enter a valid number.")
     } catch (e: SQLException) {
         e.printStackTrace()
     }
+}
+
+@Throws(SQLException::class)
+private fun getEmployeeDetails(employeeID: Int): Employee? {
+    // Query the database to get employee details
+    // Replace this with your actual database query logic
+    // Return an instance of Employee if found, or null if not found
+    return null
+}
+
+@Throws(SQLException::class)
+private fun getPackTypeDetails(packTypeID: Int): PackType? {
+    // Query the database to get pack type details
+    // Replace this with your actual database query logic
+    // Return an instance of PackType if found, or null if not found
+    return null
 }
