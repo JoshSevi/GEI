@@ -5,22 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6446492b-9f12-4e7f-ba73-ebeb5d523b02" name="Changes" comment="Changes by kenji">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DTR.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/readme.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Poop.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RegCalc.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DTR.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DTR.kt" afterDir="false" />
     </list>
-    <list id="9ecffd75-8f61-4028-8a2a-86dadd1c6086" name="Changes by kenji" comment="Changes by kenji">
-      <change beforePath="$PROJECT_DIR$/src/main/java/EmployeeRegistration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EmployeeRegistration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PieceWorkRate.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Attendance.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RegularCalculations.kt" beforeDir="false" />
-    </list>
-    <list id="d097e065-e2af-40dd-88ca-36bef4b329f7" name="Changes by keo" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/InputCalculations.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/InputCalculations.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PackType.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PackType.kt" afterDir="false" />
-    </list>
+    <list id="9ecffd75-8f61-4028-8a2a-86dadd1c6086" name="Changes by kenji" comment="Changes by kenji" />
+    <list id="d097e065-e2af-40dd-88ca-36bef4b329f7" name="Changes by keo" comment="Employee, DTR, PackType, Database" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -118,7 +107,7 @@
       <workItem from="1708924688954" duration="4152000" />
       <workItem from="1708933236467" duration="2622000" />
       <workItem from="1709003788416" duration="9288000" />
-      <workItem from="1709023158946" duration="4788000" />
+      <workItem from="1709023158946" duration="6491000" />
     </task>
     <task id="LOCAL-00001" summary="register employee">
       <option name="closed" value="true" />
@@ -152,7 +141,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709005553785</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Employee, DTR, PackType, Database">
+      <option name="closed" value="true" />
+      <created>1709034925275</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1709034925275</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,6 +183,8 @@
     <MESSAGE value="Register employee with job types" />
     <MESSAGE value="UPDATED FUllY FUNCTION CRUD EMPLOYEES" />
     <MESSAGE value="Changes by kenji" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes by kenji" />
+    <MESSAGE value="Changes by keo" />
+    <MESSAGE value="Employee, DTR, PackType, Database" />
+    <option name="LAST_COMMIT_MESSAGE" value="Employee, DTR, PackType, Database" />
   </component>
 </project>
