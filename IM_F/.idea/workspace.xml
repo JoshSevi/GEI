@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6446492b-9f12-4e7f-ba73-ebeb5d523b02" name="Changes" comment="Changes by kenji">
+      <change afterPath="$PROJECT_DIR$/lib/miglayout-core-javadoc.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/miglayout-core-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/miglayout-core.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/miglayout-swing-javadoc.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/miglayout-swing-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/miglayout-swing.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/cbc0bab0-482d-4200-9f77-729dcecb6040.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DatabaseConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DatabaseConnector.java" afterDir="false" />
+    </list>
+    <list id="9ecffd75-8f61-4028-8a2a-86dadd1c6086" name="Changes by kenji" comment="Changes by kenji" />
+    <list id="d097e065-e2af-40dd-88ca-36bef4b329f7" name="Changes by keo" comment="Employee, DTR, PackType, Database" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin File" />
+        <option value="Kotlin Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;JoshSevi&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="6fb88c55-7fd4-4b58-8758-b7d470f0e620" />
+        <option name="url" value="https://github.com/JoshSevi/GEI.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2coPkREFMcLypBar3S1IC385THm" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Kotlin.InputCalculationsKt.executor": "Run",
+    "Kotlin.MainKt.executor": "Run",
+    "Kotlin.PackTypeKt.executor": "Run",
+    "Kotlin.PieceWorkRateKt.executor": "Run",
+    "Kotlin.RegCalcKt.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "241",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "masterw/GUI",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/keo/Downloads/GEI.sql",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "/Users/sevi/School/IM/GEI/src/main/java/org/example/Main.java",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-322ed176" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6446492b-9f12-4e7f-ba73-ebeb5d523b02" name="Changes" comment="" />
+      <created>1708775100787</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1708775100787</updated>
+      <workItem from="1708775101844" duration="2602000" />
+      <workItem from="1708778800890" duration="92000" />
+      <workItem from="1708779053442" duration="458000" />
+      <workItem from="1708779639274" duration="828000" />
+      <workItem from="1708783434208" duration="4918000" />
+      <workItem from="1708924688954" duration="4152000" />
+      <workItem from="1708933236467" duration="2622000" />
+      <workItem from="1709003788416" duration="9288000" />
+      <workItem from="1709023158946" duration="6491000" />
+      <workItem from="1709365346283" duration="100000" />
+      <workItem from="1709365461453" duration="1061000" />
+      <workItem from="1709366921657" duration="236000" />
+      <workItem from="1709367171979" duration="780000" />
+      <workItem from="1709368870036" duration="195000" />
+      <workItem from="1709369079529" duration="7869000" />
+      <workItem from="1709460561619" duration="1558000" />
+      <workItem from="1709463018788" duration="1944000" />
+      <workItem from="1709641607378" duration="34000" />
+      <workItem from="1709644362409" duration="847000" />
+    </task>
+    <task id="LOCAL-00001" summary="register employee">
+      <option name="closed" value="true" />
+      <created>1708778474351</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1708778474351</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Register employee with job types">
+      <option name="closed" value="true" />
+      <created>1708788480773</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1708788480773</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Changes by kenji">
+      <option name="closed" value="true" />
+      <created>1709005524394</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1709005524394</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Changes by kenji">
+      <option name="closed" value="true" />
+      <created>1709005553785</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1709005553785</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Employee, DTR, PackType, Database">
+      <option name="closed" value="true" />
+      <created>1709034925275</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1709034925275</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Changes by kenji">
+      <option name="closed" value="true" />
+      <created>1709645088193</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1709645088193</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="register employee" />
+    <MESSAGE value="Register employee with job types" />
+    <MESSAGE value="UPDATED FUllY FUNCTION CRUD EMPLOYEES" />
+    <MESSAGE value="Changes by keo" />
+    <MESSAGE value="Employee, DTR, PackType, Database" />
+    <MESSAGE value="Changes by kenji" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes by kenji" />
+  </component>
+</project>
