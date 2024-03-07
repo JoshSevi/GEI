@@ -409,7 +409,7 @@ public class PayFactors extends javax.swing.JFrame {
     }//GEN-LAST:event_Button_backActionPerformed
 
     private void TField_smallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TField_smallActionPerformed
-
+        InstructionsKt.retrieveAndSetSmallSizeRate();
     }//GEN-LAST:event_TField_smallActionPerformed
 
     /**
