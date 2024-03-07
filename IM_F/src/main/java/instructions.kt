@@ -9,6 +9,8 @@ import javax.swing.JFrame
 import java.awt.Component
 import java.awt.Window
 import javax.swing.JButton
+import java.sql.PreparedStatement
+import java.math.BigDecimal
 
 //
 //
@@ -159,7 +161,48 @@ fun redirectToPayslip(currentWindow: JFrame) {
 // PayFactors.java
 //
 //
+// Function to retrieve the 'Rate' for the 'Small' size and set it to the text of the JTextField
+val TField_small = JTextField()
+fun retrieveAndSetSmallSizeRate() {
+    val connection: Connection = DatabaseConnector.getConnection()
 
+    val sqlQuery = "SELECT Rate FROM packtype WHERE Size = 'Small'"
+
+    try {
+        val statement: Statement = connection.createStatement()
+        val resultSet = statement.executeQuery(sqlQuery)
+
+        if (resultSet.next()) {
+            val rateData = resultSet.getBigDecimal("Rate")
+            TField_small.text = rateData.toString()
+        }
+
+        resultSet.close()
+        statement.close()
+        connection.close()
+    } catch (e: SQLException) {
+        e.printStackTrace()
+    }
+}
+
+
+// Function to update the 'Rate' for the 'Small' size in the database
+fun updateSmallSizeRateInDatabase(newRate: BigDecimal) {
+    val connection: Connection = DatabaseConnector.getConnection()
+
+    val sqlUpdate = "UPDATE packtype SET Rate = ? WHERE Size = 'Small'"
+
+    try {
+        val preparedStatement: PreparedStatement = connection.prepareStatement(sqlUpdate)
+        preparedStatement.setBigDecimal(1, newRate)
+        preparedStatement.executeUpdate()
+
+        preparedStatement.close()
+        connection.close()
+    } catch (e: SQLException) {
+        e.printStackTrace()
+    }
+}
 
 
 //

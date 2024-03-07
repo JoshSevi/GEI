@@ -205,6 +205,11 @@ public class PayFactors extends javax.swing.JFrame {
         TField_Overtimerate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         TField_small.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        TField_small.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TField_smallActionPerformed(evt);
+            }
+        });
 
         TField_medium.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
@@ -402,6 +407,10 @@ public class PayFactors extends javax.swing.JFrame {
     private void Button_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_backActionPerformed
         InstructionsKt.redirectToDashboard(this);
     }//GEN-LAST:event_Button_backActionPerformed
+
+    private void TField_smallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TField_smallActionPerformed
+
+    }//GEN-LAST:event_TField_smallActionPerformed
 
     /**
      * @param args the command line arguments
