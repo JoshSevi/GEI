@@ -1,70 +1,78 @@
+import java.sql.*
 import java.sql.Connection
-import java.sql.PreparedStatement
-import java.sql.ResultSet
-import java.sql.SQLException
 
-object PieceworkProcessor {
-    @Throws(SQLException::class)
-    fun processPiecework(employee: Employee, packType: PackType, quantity: Int) {
-        val transactionAmount = packType.rate * quantity
-        savePieceworkTransaction(employee.employeeId, packType.id, quantity, transactionAmount)
-    }
 
-    @Throws(SQLException::class)
-    private fun savePieceworkTransaction(employeeID: Int, packTypeID: Int, quantity: Int, transactionAmount: Double) {
-        val query = "INSERT INTO Piecework_Details (Employee_ID, PackType_ID, Quantity, Transaction_Amount) VALUES (?, ?, ?, ?)"
-        val connection: Connection = DatabaseConnector.getConnection()
-        val statement: PreparedStatement = connection.prepareStatement(query)
-        statement.setInt(1, employeeID)
-        statement.setInt(2, packTypeID)
-        statement.setInt(3, quantity)
-        statement.setDouble(4, transactionAmount)
-        statement.executeUpdate()
-        statement.close()
-        connection.close()
+fun savePieceworkTransaction(
+    employeeId: Int,
+    packTypeId: Int,
+    quantity: Int,
+    currentDate: java.sql.Date,
+    adminId: Int,
+    connection: Connection // Pass the DatabaseConnector instance
+) {
+
+    try {
+        // Step 1: Insert into Transaction table and get generated Transaction_ID
+        val transactionInsertStmt = connection.prepareStatement(
+            "INSERT INTO Transaction (Date, Admin_ID) VALUES (?, ?)",
+            Statement.RETURN_GENERATED_KEYS
+        )
+        try {
+            transactionInsertStmt.setDate(1, currentDate)
+            transactionInsertStmt.setInt(2, adminId)
+            transactionInsertStmt.executeUpdate()
+
+            // Step 2: Retrieve the auto-generated Transaction_ID
+            val generatedKeys = transactionInsertStmt.generatedKeys
+            if (generatedKeys.next()) {
+                val transactionId = generatedKeys.getInt(1)
+
+                // Step 3: Insert into Piecework_Details using the retrieved Transaction_ID
+                val pieceworkDetailsStmt = connection.prepareStatement(
+                    "INSERT INTO Piecework_Details (Transaction_ID, Employee_ID, PackType_ID, Quantity) VALUES (?, ?, ?, ?)"
+                )
+                try {
+                    pieceworkDetailsStmt.setInt(1, transactionId)
+                    pieceworkDetailsStmt.setInt(2, employeeId)
+                    pieceworkDetailsStmt.setInt(3, packTypeId)
+                    pieceworkDetailsStmt.setInt(4, quantity)
+                    pieceworkDetailsStmt.executeUpdate()
+                } finally {
+                    pieceworkDetailsStmt.close() // Close the PreparedStatement
+                }
+            } else {
+                throw SQLException("Inserting transaction failed, no ID obtained.")
+            }
+        } finally {
+            transactionInsertStmt.close()
+        }
+        connection.commit() // Commit the transaction
+    } catch (ex: SQLException) {
+        connection.rollback() // Rollback the transaction on error
+        throw ex // Rethrow the exception to handle it at a higher level
+    } finally {
+        connection.autoCommit = true // Restore default behavior
+        connection.close() // Close the connection
     }
 }
 
 fun main() {
     try {
-        // Example: Employee ID and Pack Type ID obtained from user input
-        println("Enter Employee ID:")
-        val employeeID = readLine()!!.toInt()
+        val connection = DatabaseConnector.getConnection()
+        connection.autoCommit = false // Set autocommit to false
 
-        println("Enter Pack Type ID:")
-        val packTypeID = readLine()!!.toInt()
+        val employeeId = 2
+        val packTypeId = 2
+        val quantity = 21
+        val currentDate = java.sql.Date(System.currentTimeMillis())
+        val adminId = 1 // Replace with the actual admin ID
 
-        println("Enter Quantity:")
-        val quantity = readLine()!!.toInt()
+        savePieceworkTransaction(employeeId, packTypeId, quantity, currentDate, adminId, connection)
 
-        val employee = getEmployeeDetails(employeeID)
-        val packType = getPackTypeDetails(packTypeID)
+        connection.commit() // Commit the transaction explicitly
 
-        if (employee != null && packType != null) {
-            PieceworkProcessor.processPiecework(employee, packType, quantity)
-            println("Piecework transaction processed successfully.")
-        } else {
-            println("Employee or PackType not found.")
-        }
-    } catch (e: NumberFormatException) {
-        println("Invalid input. Please enter a valid number.")
-    } catch (e: SQLException) {
-        e.printStackTrace()
+        println("Transaction saved successfully.")
+    } catch (ex: SQLException) {
+        println("Error saving transaction: ${ex.message}")
     }
-}
-
-@Throws(SQLException::class)
-private fun getEmployeeDetails(employeeID: Int): Employee? {
-    // Query the database to get employee details
-    // Replace this with your actual database query logic
-    // Return an instance of Employee if found, or null if not found
-    return null
-}
-
-@Throws(SQLException::class)
-private fun getPackTypeDetails(packTypeID: Int): PackType? {
-    // Query the database to get pack type details
-    // Replace this with your actual database query logic
-    // Return an instance of PackType if found, or null if not found
-    return null
 }
