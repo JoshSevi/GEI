@@ -3,10 +3,7 @@
          * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
          */
         import java.awt.event.ActionEvent;
-        import java.sql.Connection;
-        import java.sql.PreparedStatement;
-        import java.sql.ResultSet;
-        import java.sql.SQLException;
+        import java.sql.*;
         import javax.swing.*;
         import javax.swing.table.DefaultTableModel;
 
@@ -42,6 +39,8 @@
                 DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
                 model.setRowCount(0); // Clear previous data
 
+                DefaultComboBoxModel<String> comboBoxModel = new DefaultComboBoxModel<>();
+
                 while (resultSet.next()) {
                     int employeeId = resultSet.getInt("Employee_ID");
                     String employeeName = resultSet.getString("Employee_Name");
@@ -51,8 +50,10 @@
                     String date = resultSet.getString("Date");
 
                     model.addRow(new Object[]{employeeId, employeeName, size, quantity, transactionId, date});
-
+                    comboBoxModel.addElement(employeeName); // Add employee name to the dropdown
                 }
+
+                Dropdown_EName.setModel(comboBoxModel); // Set the model for the dropdown
 
                 resultSet.close();
                 statement.close();
@@ -108,6 +109,24 @@
                     JOptionPane.showMessageDialog(this, "Error adding piecework: " + e.getMessage());
                 }
             }
+            private void populateEmployeeDropdown() {
+                // Remove default items
+                Dropdown_EName.removeAllItems();
+
+                // Connect to the database and populate the dropdown
+                try (Connection conn = DatabaseConnector.getConnection();
+                     Statement stmt = conn.createStatement();
+                     ResultSet rs = stmt.executeQuery("SELECT Employee_Name FROM employees")) {
+
+                    while (rs.next()) {
+                        Dropdown_EName.addItem(rs.getString("Employee_Name"));
+                    }
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(this, "Error populating employee list: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+
 
 
             private int getSelectedSizeId() {
@@ -139,6 +158,7 @@
             public Piecework() {
                 initComponents();
                 loadPieceworkDetails();
+                populateEmployeeDropdown();
 
             }
 
