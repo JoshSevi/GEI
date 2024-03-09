@@ -11,6 +11,13 @@ import java.awt.Window
 import javax.swing.JButton
 import java.sql.PreparedStatement
 import java.math.BigDecimal
+import java.awt.BorderLayout
+import java.sql.DriverManager
+import java.sql.ResultSet
+import javax.swing.JScrollPane
+import javax.swing.JTable
+import javax.swing.SwingUtilities
+import javax.swing.table.DefaultTableColumnModel
 
 //
 //
@@ -163,6 +170,8 @@ fun redirectToPayslip(currentWindow: JFrame) {
 //
 // Function to retrieve the 'Rate' for the 'Small' size and set it to the text of the JTextField
 val TField_small = JTextField()
+val TField_medium = JTextField()
+val TField_large = JTextField()
 fun retrieveAndSetSmallSizeRate() {
     val connection: Connection = DatabaseConnector.getConnection()
 
@@ -185,6 +194,49 @@ fun retrieveAndSetSmallSizeRate() {
     }
 }
 
+fun retrieveAndSetMediumSizeRate() {
+    val connection: Connection = DatabaseConnector.getConnection()
+
+    val sqlQuery = "SELECT Rate FROM packtype WHERE Size = 'Medium'"
+
+    try {
+        val statement: Statement = connection.createStatement()
+        val resultSet = statement.executeQuery(sqlQuery)
+
+        if (resultSet.next()) {
+            val rateData = resultSet.getBigDecimal("Rate")
+            TField_medium.text = rateData.toString()
+        }
+
+        resultSet.close()
+        statement.close()
+        connection.close()
+    } catch (e: SQLException) {
+        e.printStackTrace()
+    }
+}
+
+fun retrieveAndSetLargeSizeRate() {
+    val connection: Connection = DatabaseConnector.getConnection()
+
+    val sqlQuery = "SELECT Rate FROM packtype WHERE Size = 'Large'"
+
+    try {
+        val statement: Statement = connection.createStatement()
+        val resultSet = statement.executeQuery(sqlQuery)
+
+        if (resultSet.next()) {
+            val rateData = resultSet.getBigDecimal("Rate")
+            TField_large.text = rateData.toString()
+        }
+
+        resultSet.close()
+        statement.close()
+        connection.close()
+    } catch (e: SQLException) {
+        e.printStackTrace()
+    }
+}
 
 // Function to update the 'Rate' for the 'Small' size in the database
 fun updateSmallSizeRateInDatabase(newRate: BigDecimal) {

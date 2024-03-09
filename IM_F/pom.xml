@@ -104,6 +104,5 @@
             </plugin>
         </plugins>
     </build>
-
-
+    <name>GEI Main</name>
 </project>

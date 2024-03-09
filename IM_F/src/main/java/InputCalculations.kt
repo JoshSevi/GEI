@@ -62,8 +62,8 @@ fun main() {
         connection.autoCommit = false // Set autocommit to false
 
         val employeeId = 2
-        val packTypeId = 2
-        val quantity = 21
+        val packTypeId = 3
+        val quantity = 29
         val currentDate = java.sql.Date(System.currentTimeMillis())
         val adminId = 1 // Replace with the actual admin ID
 
@@ -75,4 +75,6 @@ fun main() {
     } catch (ex: SQLException) {
         println("Error saving transaction: ${ex.message}")
     }
-}
+} 
+
+
