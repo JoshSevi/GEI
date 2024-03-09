@@ -129,11 +129,56 @@ private void loadRegularEmployeeDetails() {
         EmployeeID5.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         EmployeeID5.setText("Break Out");
 
+        TField_EmployeeID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TField_EmployeeIDActionPerformed(evt);
+            }
+        });
+
         Dropdown_EName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Dropdown_EName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Dropdown_ENameActionPerformed(evt);
+            }
+        });
+
+        TField_breakout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TField_breakoutActionPerformed(evt);
+            }
+        });
+
+        TField_breakin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TField_breakinActionPerformed(evt);
+            }
+        });
+
+        TField_timeout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TField_timeoutActionPerformed(evt);
+            }
+        });
+
+        TField_timein.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TField_timeinActionPerformed(evt);
+            }
+        });
 
         Button_cancel.setText("Cancel");
+        Button_cancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button_cancelActionPerformed(evt);
+            }
+        });
 
         Button_update.setText("Update");
+        Button_update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button_updateActionPerformed(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -158,6 +203,18 @@ private void loadRegularEmployeeDetails() {
 
         EmployeeID6.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         EmployeeID6.setText("Overtime Time Out");
+
+        TField_timeout1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TField_timeout1ActionPerformed(evt);
+            }
+        });
+
+        TField_breakin1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TField_breakin1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -274,6 +331,46 @@ private void loadRegularEmployeeDetails() {
     private void Button_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_deleteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Button_deleteActionPerformed
+
+    private void TField_EmployeeIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TField_EmployeeIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TField_EmployeeIDActionPerformed
+
+    private void Dropdown_ENameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Dropdown_ENameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Dropdown_ENameActionPerformed
+
+    private void TField_timeinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TField_timeinActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TField_timeinActionPerformed
+
+    private void TField_breakoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TField_breakoutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TField_breakoutActionPerformed
+
+    private void TField_breakinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TField_breakinActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TField_breakinActionPerformed
+
+    private void TField_timeoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TField_timeoutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TField_timeoutActionPerformed
+
+    private void TField_timeout1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TField_timeout1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TField_timeout1ActionPerformed
+
+    private void TField_breakin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TField_breakin1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TField_breakin1ActionPerformed
+
+    private void Button_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_updateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Button_updateActionPerformed
+
+    private void Button_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_cancelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Button_cancelActionPerformed
 
     /**
      * @param args the command line arguments
