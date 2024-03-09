@@ -10,6 +10,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Set;
+import java.awt.*;
+import javax.swing.*;
+import javax.swing.GroupLayout;
+import javax.swing.LayoutStyle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 
 /**
@@ -74,62 +82,72 @@ public class EmployeeCRUD extends javax.swing.JFrame {
         }
     }
 // ============================================================================================
-
-
-private void addEmployeeToDatabase(String name, String contactNumber, String gender, String dob, String jobType) {
-    // Get a database connection
-    Connection connection = null;
+private void createEmployee() {
+    String employeeName = TField_EmployeeName.getText();
+    String contactNumber = TField_ContactNumber.getText();
+    String gender = (String) Dropdown_Gender.getSelectedItem();
+    String dateOfBirth = TField_DateOfBirth.getText();
+    String jobTypeDescription = (String) Dropdown_JobType.getSelectedItem();
     try {
-        connection = DatabaseConnector.getConnection();
-    } catch (SQLException e) {
-        throw new RuntimeException(e);
-    }
-    if (connection == null) {
-        // Handle connection failure
-        return;
-    }
-
-    try {
-        // Insert into employees table
-        String insertEmployeeQuery = "INSERT INTO employees (Employee_Name, Contact_Number, Gender, Date_of_Birth) VALUES (?, ?, ?, ?)";
-        PreparedStatement employeeStatement = connection.prepareStatement(insertEmployeeQuery, PreparedStatement.RETURN_GENERATED_KEYS);
-        employeeStatement.setString(1, name);
-        employeeStatement.setString(2, contactNumber);
-        employeeStatement.setString(3, gender);
-        employeeStatement.setString(4, dob);
-        employeeStatement.executeUpdate();
-
-        // Get the auto-generated employee ID
-        int employeeId;
-        try (ResultSet generatedKeys = employeeStatement.getGeneratedKeys()) {
-            if (generatedKeys.next()) {
-                employeeId = generatedKeys.getInt(1);
-            } else {
-                throw new SQLException("Creating employee failed, no ID obtained.");
-            }
-        }
-
-        // Insert into piecework or regular table based on job type
-        String insertJobTypeQuery;
-        if (jobType.equals("Piecework")) {
-            insertJobTypeQuery = "INSERT INTO piecework (Employee_ID, Job_Type_Description) VALUES (?, ?)";
-        } else {
-            insertJobTypeQuery = "INSERT INTO regular (Employee_ID, Job_Type_Description) VALUES (?, ?)";
-        }
-        PreparedStatement jobTypeStatement = connection.prepareStatement(insertJobTypeQuery);
-        jobTypeStatement.setInt(1, employeeId);
-        jobTypeStatement.setString(2, jobType);
-        jobTypeStatement.executeUpdate();
-
-        // Close statements and connection
-        employeeStatement.close();
-        jobTypeStatement.close();
-        connection.close();
+        Connection connection = DatabaseConnector.getConnection();
+        Employee.insertEmployee(connection, employeeName, contactNumber, gender, dateOfBirth, jobTypeDescription);
+        refreshTable();
     } catch (SQLException e) {
         e.printStackTrace();
-        // Handle SQL errors
+        JOptionPane.showMessageDialog(this, "Error creating employee: " + e.getMessage());
     }
 }
+
+    private void updateEmployee() {
+        try {
+            int employeeId = Integer.parseInt(TField_EmployeeID.getText());
+            String employeeName = TField_EmployeeName.getText();
+            String contactNumber = TField_ContactNumber.getText();
+            String gender = (String) Dropdown_Gender.getSelectedItem();
+            String dateOfBirth = TField_DateOfBirth.getText();
+            String jobTypeDescription = (String) Dropdown_JobType.getSelectedItem();
+
+            Connection connection = DatabaseConnector.getConnection();
+            Employee.updateEmployee(connection, employeeId, employeeName, contactNumber, gender, dateOfBirth, jobTypeDescription);
+            JOptionPane.showMessageDialog(this, "Employee updated successfully!");
+            refreshTable();
+        } catch (NumberFormatException nfe) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid Employee ID.");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error updating employee: " + e.getMessage());
+        }
+    }
+
+    private void deleteEmployee() {
+        try {
+            int employeeId = Integer.parseInt(TField_EmployeeID.getText());
+            Connection connection = DatabaseConnector.getConnection();
+            Employee.deleteEmployee(connection, employeeId);
+            JOptionPane.showMessageDialog(this, "Employee deleted successfully!");
+            refreshTable();
+        } catch (NumberFormatException nfe) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid Employee ID.");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error deleting employee: " + e.getMessage());
+        }
+    }
+
+    private void clearForm() {
+        TField_EmployeeID.setText("");
+        TField_EmployeeName.setText("");
+        TField_ContactNumber.setText("");
+        Dropdown_Gender.setSelectedIndex(0);
+        TField_DateOfBirth.setText("");
+        Dropdown_JobType.setSelectedIndex(0);
+    }
+
+    private void refreshTable() {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+        loadEmployeeDataFromDatabase();
+    }
+
+
 //==========================================================================================
 
 //===========================================================================
@@ -139,6 +157,7 @@ private void addEmployeeToDatabase(String name, String contactNumber, String gen
     public EmployeeCRUD() {
         initComponents();
         loadEmployeeDataFromDatabase();
+
     }
 
     /**
@@ -200,14 +219,14 @@ private void addEmployeeToDatabase(String name, String contactNumber, String gen
         JobType.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         JobType.setText("Job Type:");
 
-        Dropdown_Gender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Dropdown_Gender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female"}));
         Dropdown_Gender.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Dropdown_GenderActionPerformed(evt);
             }
         });
 
-        Dropdown_JobType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Dropdown_JobType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "regular", "piecework" }));
 
         Button_update.setText("Update");
         Button_update.addActionListener(new java.awt.event.ActionListener() {
@@ -235,6 +254,11 @@ private void addEmployeeToDatabase(String name, String contactNumber, String gen
 
         Button_delete.setBackground(new java.awt.Color(51, 0, 0));
         Button_delete.setText("Delete");
+        Button_delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button_deleteActionPerformed(evt);
+            }
+        });
 
         Button_add.setText("Add");
         Button_add.addActionListener(new java.awt.event.ActionListener() {
@@ -348,29 +372,24 @@ private void addEmployeeToDatabase(String name, String contactNumber, String gen
     }//GEN-LAST:event_Button_backActionPerformed
 
     private void Button_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_updateActionPerformed
-        // TODO add your handling code here:
+        updateEmployee();
     }//GEN-LAST:event_Button_updateActionPerformed
 
     private void Button_clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_clearActionPerformed
-        // TODO add your handling code here:
+        clearForm();
     }//GEN-LAST:event_Button_clearActionPerformed
 
     private void Button_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_addActionPerformed
-        String name = TField_EmployeeName.getText();
-        String contactNumber = TField_ContactNumber.getText();
-        String gender = Dropdown_Gender.getSelectedItem().toString();
-        String dob = TField_DateOfBirth.getText();
-        String jobType = Dropdown_JobType.getSelectedItem().toString();
-
-        // Add employee to the database
-        addEmployeeToDatabase(name, contactNumber, gender, dob, jobType);
-
-        // Refresh JTable or any other UI update if needed
+        createEmployee();
     }//GEN-LAST:event_Button_addActionPerformed
 
     private void Dropdown_GenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Dropdown_GenderActionPerformed
-
+        Dropdown_Gender.setModel(new DefaultComboBoxModel<>(new String[]{"Male", "Female", "Other"}));
     }//GEN-LAST:event_Dropdown_GenderActionPerformed
+
+    private void Button_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_deleteActionPerformed
+        deleteEmployee();
+    }//GEN-LAST:event_Button_deleteActionPerformed
 
     /**
      * @param args the command line arguments
