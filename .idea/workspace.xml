@@ -5,11 +5,69 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6446492b-9f12-4e7f-ba73-ebeb5d523b02" name="Changes" comment="Changes by kenji">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/IM_F.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/.idea/dataSources/cbc0bab0-482d-4200-9f77-729dcecb6040/storage_v2/_src_/schema/GEI.KxMBAA.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/.idea/dataSources/cbc0bab0-482d-4200-9f77-729dcecb6040/storage_v2/_src_/schema/im_gei.sJlZuQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/.idea/dataSources/cbc0bab0-482d-4200-9f77-729dcecb6040/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/.idea/dataSources/cbc0bab0-482d-4200-9f77-729dcecb6040/storage_v2/_src_/schema/mysql.osA4Bg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/.idea/dataSources/cbc0bab0-482d-4200-9f77-729dcecb6040/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/.idea/dataSources/cbc0bab0-482d-4200-9f77-729dcecb6040/storage_v2/_src_/schema/sys.zb4BAA.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/.idea/kotlinc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/lib/miglayout-core-javadoc.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/lib/miglayout-core-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/lib/miglayout-core.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/lib/miglayout-swing-javadoc.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/lib/miglayout-swing-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/lib/miglayout-swing.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/src/main/java/AdminSignIn.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/src/main/java/AdminSignIn.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/src/main/java/Attendance.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/src/main/java/CashAdv.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/src/main/java/CashAdv.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/src/main/java/DTR.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/src/main/java/DashBoard.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/src/main/java/DashBoard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/src/main/java/DatabaseConnector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/src/main/java/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/src/main/java/EmployeeCRUD.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/src/main/java/EmployeeCRUD.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/src/main/java/EmployeeDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/src/main/java/EmployeeRegistration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/src/main/java/InputCalculations.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/src/main/java/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/src/main/java/Main.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/src/main/java/OvertimeEligible.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/src/main/java/OvertimeEligible.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/src/main/java/PackType.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/src/main/java/PayFactors.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/src/main/java/PayFactors.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/src/main/java/Payslip.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/src/main/java/Payslip.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/src/main/java/Piecework.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/src/main/java/Piecework.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/src/main/java/RegCalc.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/src/main/java/Regular.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/src/main/java/Regular.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/src/main/java/SimulationalTimeKeeping.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/src/main/java/SimulationalTimeKeeping.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/src/main/java/instructions.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IM_F/src/main/java/readme.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/cbc0bab0-482d-4200-9f77-729dcecb6040.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/cbc0bab0-482d-4200-9f77-729dcecb6040.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AdminSignIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AdminSignIn.java" afterDir="false" />
     </list>
     <list id="9ecffd75-8f61-4028-8a2a-86dadd1c6086" name="Changes by kenji" comment="Changes by kenji" />
     <list id="d097e065-e2af-40dd-88ca-36bef4b329f7" name="Changes by keo" comment="Employee, DTR, PackType, Database" />
@@ -74,7 +132,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "kenji",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/kenji/Downloads/IM_F/yes",
+    "last_opened_file_path": "C:/Users/kenji/Downloads/IM_F",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -198,5 +256,9 @@
     <MESSAGE value="Changes by keo" />
     <MESSAGE value="Employee, DTR, PackType, Database" />
     <option name="LAST_COMMIT_MESSAGE" value="Employee, DTR, PackType, Database" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
