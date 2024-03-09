@@ -108,7 +108,7 @@
                     // Handle insertion error gracefully
                     JOptionPane.showMessageDialog(this, "Error adding piecework: " + e.getMessage());
                 }
-            }
+            }//test
             private void populateEmployeeDropdown() {
                 // Remove default items
                 Dropdown_EName.removeAllItems();
