@@ -1,11 +1,23 @@
 import java.sql.Connection
 import java.sql.SQLException
 import java.sql.Statement
+import javax.swing.JComboBox
+import javax.swing.JOptionPane
+import javax.swing.JTextField
 import kotlin.system.exitProcess
+import javax.swing.JFrame
 import java.awt.Component
 import java.awt.Window
+import javax.swing.JButton
+import java.sql.PreparedStatement
+import java.math.BigDecimal
+import java.awt.BorderLayout
+import java.sql.DriverManager
 import java.sql.ResultSet
-import javax.swing.*
+import javax.swing.JScrollPane
+import javax.swing.JTable
+import javax.swing.SwingUtilities
+import javax.swing.table.DefaultTableColumnModel
 
 //
 //
@@ -24,7 +36,6 @@ fun redirectToDashboard(currentWindow: JFrame) {
 // AdminSignIn.java
 //
 //
-
 fun populateAdminNames(comboBox: JComboBox<String>) {
     try {
         // Assuming you already have a database connection
@@ -127,56 +138,13 @@ fun redirectToPayslip(currentWindow: JFrame) {
     payslipForm.isVisible = true
     currentWindow.dispose()
 }
-fun updateCounters(Regular_total: JLabel, Piecework_total: JLabel) {
-    try {
-        // Assuming you already have a database connection
-        val connection: Connection = DatabaseConnector.getConnection() // Replace DatabaseConnector.getConnection() with your actual method for getting database connection
-
-        // Query to get the count of regular employees
-        val regularQuery = "SELECT COUNT(*) AS regularCount FROM Employees WHERE employment_type = 'Regular'"
-        val regularStatement: Statement = connection.createStatement()
-        val regularResultSet: ResultSet = regularStatement.executeQuery(regularQuery)
-        if (regularResultSet.next()) {
-            val regularCount: Int = regularResultSet.getInt("regularCount")
-            Regular_total.text = regularCount.toString()
-        }
-
-        // Query to get the count of piecework employees
-        val pieceworkQuery = "SELECT COUNT(*) AS pieceworkCount FROM Employees WHERE employment_type = 'Piecework'"
-        val pieceworkStatement: Statement = connection.createStatement()
-        val pieceworkResultSet: ResultSet = pieceworkStatement.executeQuery(pieceworkQuery)
-        if (pieceworkResultSet.next()) {
-            val pieceworkCount: Int = pieceworkResultSet.getInt("pieceworkCount")
-            Piecework_total.text = pieceworkCount.toString()
-        }
-
-        // Close resources
-        regularResultSet.close()
-        regularStatement.close()
-        pieceworkResultSet.close()
-        pieceworkStatement.close()
-        connection.close()
-    } catch (e: SQLException) {
-        e.printStackTrace()
-        // Handle any SQL exceptions here
-    }
-}
 
 //
 //
 // EmployeeCRUD.java
 //
 //
-fun showEmployeeCRUD(currentWindow: JFrame) {
-    // Create an instance of EmployeeCRUD (assuming it's in the same package or accessible)
-    val employeeCRUD = EmployeeCRUD()
 
-    // Make the EmployeeCRUD window visible
-    employeeCRUD.isVisible = true
-
-    // Dispose the current window (if applicable)
-    currentWindow.dispose()
-}
 
 
 //
@@ -200,7 +168,93 @@ fun showEmployeeCRUD(currentWindow: JFrame) {
 // PayFactors.java
 //
 //
+// Function to retrieve the 'Rate' for the 'Small' size and set it to the text of the JTextField
+val TField_small = JTextField()
+val TField_medium = JTextField()
+val TField_large = JTextField()
+fun retrieveAndSetSmallSizeRate() {
+    val connection: Connection = DatabaseConnector.getConnection()
 
+    val sqlQuery = "SELECT Rate FROM packtype WHERE Size = 'Small'"
+
+    try {
+        val statement: Statement = connection.createStatement()
+        val resultSet = statement.executeQuery(sqlQuery)
+
+        if (resultSet.next()) {
+            val rateData = resultSet.getBigDecimal("Rate")
+            TField_small.text = rateData.toString()
+        }
+
+        resultSet.close()
+        statement.close()
+        connection.close()
+    } catch (e: SQLException) {
+        e.printStackTrace()
+    }
+}
+
+fun retrieveAndSetMediumSizeRate() {
+    val connection: Connection = DatabaseConnector.getConnection()
+
+    val sqlQuery = "SELECT Rate FROM packtype WHERE Size = 'Medium'"
+
+    try {
+        val statement: Statement = connection.createStatement()
+        val resultSet = statement.executeQuery(sqlQuery)
+
+        if (resultSet.next()) {
+            val rateData = resultSet.getBigDecimal("Rate")
+            TField_medium.text = rateData.toString()
+        }
+
+        resultSet.close()
+        statement.close()
+        connection.close()
+    } catch (e: SQLException) {
+        e.printStackTrace()
+    }
+}
+
+fun retrieveAndSetLargeSizeRate() {
+    val connection: Connection = DatabaseConnector.getConnection()
+
+    val sqlQuery = "SELECT Rate FROM packtype WHERE Size = 'Large'"
+
+    try {
+        val statement: Statement = connection.createStatement()
+        val resultSet = statement.executeQuery(sqlQuery)
+
+        if (resultSet.next()) {
+            val rateData = resultSet.getBigDecimal("Rate")
+            TField_large.text = rateData.toString()
+        }
+
+        resultSet.close()
+        statement.close()
+        connection.close()
+    } catch (e: SQLException) {
+        e.printStackTrace()
+    }
+}
+
+// Function to update the 'Rate' for the 'Small' size in the database
+fun updateSmallSizeRateInDatabase(newRate: BigDecimal) {
+    val connection: Connection = DatabaseConnector.getConnection()
+
+    val sqlUpdate = "UPDATE packtype SET Rate = ? WHERE Size = 'Small'"
+
+    try {
+        val preparedStatement: PreparedStatement = connection.prepareStatement(sqlUpdate)
+        preparedStatement.setBigDecimal(1, newRate)
+        preparedStatement.executeUpdate()
+
+        preparedStatement.close()
+        connection.close()
+    } catch (e: SQLException) {
+        e.printStackTrace()
+    }
+}
 
 
 //

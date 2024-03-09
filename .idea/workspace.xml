@@ -7,9 +7,21 @@
     <list default="true" id="6446492b-9f12-4e7f-ba73-ebeb5d523b02" name="Changes" comment="Changes by kenji">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/cbc0bab0-482d-4200-9f77-729dcecb6040.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/cbc0bab0-482d-4200-9f77-729dcecb6040.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AdminSignIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AdminSignIn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DashBoard.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DashBoard.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DashBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DashBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DatabaseConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DatabaseConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/EmployeeCRUD.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EmployeeCRUD.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/EmployeeCRUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EmployeeCRUD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/InputCalculations.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/InputCalculations.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PayFactors.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PayFactors.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PayFactors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PayFactors.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Piecework.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Piecework.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Piecework.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Piecework.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Regular.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Regular.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Regular.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Regular.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/instructions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/instructions.kt" afterDir="false" />
     </list>
     <list id="9ecffd75-8f61-4028-8a2a-86dadd1c6086" name="Changes by kenji" comment="Changes by kenji" />
     <list id="d097e065-e2af-40dd-88ca-36bef4b329f7" name="Changes by keo" comment="Employee, DTR, PackType, Database" />
@@ -72,7 +84,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "kenji",
+    "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/kenji/Downloads/IM_F/yes",
     "node.js.detected.package.eslint": "true",
@@ -97,7 +109,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-21.0.2-openjdk-21.0.2-f644763e9732-c0c073db" />
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-322ed176" />
       </set>
     </attachedChunks>
   </component>
@@ -120,6 +132,7 @@
       <workItem from="1709023158946" duration="6491000" />
       <workItem from="1709797523868" duration="604000" />
       <workItem from="1709802323393" duration="2867000" />
+      <workItem from="1709966981060" duration="475000" />
     </task>
     <task id="LOCAL-00001" summary="register employee">
       <option name="closed" value="true" />
@@ -178,7 +191,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="HEAD" />
+                        <option value="origin/master" />
                       </list>
                     </value>
                   </entry>

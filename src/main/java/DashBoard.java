@@ -2,18 +2,133 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+import javax.swing.table.DefaultTableModel;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.DriverManager;
+import javax.swing.table.DefaultTableModel;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
  * @author keo
  */
 public class DashBoard extends javax.swing.JFrame {
+// ================================================================================
+private DefaultTableModel tableModel;
+    private void loadPieceworkEmployeeTally() {
+    Connection connection = null;
+    try {
+        connection = DatabaseConnector.getConnection();
+    } catch (SQLException e) {
+        throw new RuntimeException(e);
+    }
+    if (connection == null) {
+        // Handle connection failure
+        return;
+    }
 
+        try {
+            String query = "SELECT p.Employee_ID, e.Employee_Name, "
+                    + "SUM(CASE WHEN pt.Size = 'Small' THEN pd.Quantity ELSE 0 END) AS Small, "
+                    + "SUM(CASE WHEN pt.Size = 'Medium' THEN pd.Quantity ELSE 0 END) AS Medium, "
+                    + "SUM(CASE WHEN pt.Size = 'Large' THEN pd.Quantity ELSE 0 END) AS Large, "
+                    + "t.Date "
+                    + "FROM piecework p "
+                    + "JOIN employees e ON p.Employee_ID = e.Employee_ID "
+                    + "JOIN piecework_details pd ON p.Employee_ID = pd.Employee_ID "
+                    + "JOIN transaction t ON pd.Transaction_ID = t.Transaction_ID "
+                    + "JOIN packtype pt ON pd.PackType_ID = pt.PackType_ID "
+                    + "GROUP BY p.Employee_ID, t.Date";
+
+            PreparedStatement statement = connection.prepareStatement(query);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                int employeeId = resultSet.getInt("Employee_ID");
+                String employeeName = resultSet.getString("Employee_Name");
+                int smallQuantity = resultSet.getInt("Small");
+                int mediumQuantity = resultSet.getInt("Medium");
+                int largeQuantity = resultSet.getInt("Large");
+                String date = resultSet.getString("Date");
+
+                tableModel.addRow(new Object[]{employeeId, employeeName, smallQuantity, mediumQuantity, largeQuantity, date});
+            }
+
+        resultSet.close();
+        statement.close();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
+    //====================================================================================
+    private DefaultTableModel tableModel1;
+    private void loadRegularEmployeeTally() {
+        Connection connection = null;
+        try {
+            connection = DatabaseConnector.getConnection();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        if (connection == null) {
+            // Handle connection failure
+            return;
+        }
+
+        DefaultTableModel tableModel1 = (DefaultTableModel) jTable1.getModel();
+
+        try {
+            String query = "SELECT e.Employee_ID, e.Employee_Name, "
+                    + "TIME_FORMAT(SEC_TO_TIME(SUM(TIMESTAMPDIFF(SECOND, dtr.Time_In, dtr.Time_Out) - 3600)), '%k Hrs, %i Min') AS Hours_Worked, "
+                    + "TIME_FORMAT(SEC_TO_TIME(SUM(TIMESTAMPDIFF(SECOND, '17:00:00', dtr.Time_Out))), '%k Hrs, %i Min') AS Overtime, "
+                    + "a.Date "
+                    + "FROM employees e "
+                    + "JOIN regular r ON e.Employee_ID = r.Employee_ID "
+                    + "JOIN dtr ON e.Employee_ID = dtr.Employee_ID "
+                    + "JOIN attendance a ON dtr.Attendance_ID = a.Attendance_ID "
+                    + "GROUP BY e.Employee_ID, a.Date";
+
+            PreparedStatement statement = connection.prepareStatement(query);
+            ResultSet resultSet = statement.executeQuery();
+
+            Set<Integer> processedEmployees = new HashSet<>();
+
+            while (resultSet.next()) {
+                int employeeId = resultSet.getInt("Employee_ID");
+                String employeeName = resultSet.getString("Employee_Name");
+                String hoursWorked = resultSet.getString("Hours_Worked");
+                String overtime = resultSet.getString("Overtime");
+                String date = resultSet.getString("Date");
+
+                // Check if this employee for this date has already been processed
+                if (processedEmployees.contains(employeeId)) {
+                    continue; // Skip to the next iteration if already processed
+                }
+
+                tableModel1.addRow(new Object[]{employeeId, employeeName, hoursWorked, overtime, date});
+                processedEmployees.add(employeeId); // Mark this employee as processed for this date
+            }
+
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // ============================================================================
     /**
      * Creates new form DashBoard
      */
     public DashBoard() {
         initComponents();
+        tableModel1 = (DefaultTableModel) jTable1.getModel();
+        loadRegularEmployeeTally();
+        tableModel = (DefaultTableModel) jTable2.getModel();
+        loadPieceworkEmployeeTally();
     }
 
     /**
@@ -83,7 +198,7 @@ public class DashBoard extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Employee ID", "Employee Name", "Hours Worked", "Overtime", "Date"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -93,7 +208,7 @@ public class DashBoard extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Employee ID", "Employee Name", "Small", "Medium", "Large", "Date"
             }
         ));
         jScrollPane2.setViewportView(jTable2);
@@ -122,9 +237,9 @@ public class DashBoard extends javax.swing.JFrame {
                         .addGroup(Panel_CountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(BoldRegular, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(BoldPiecework)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 924, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1154, Short.MAX_VALUE)
                             .addComponent(jScrollPane1))))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         Panel_CountLayout.setVerticalGroup(
             Panel_CountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,11 +332,9 @@ public class DashBoard extends javax.swing.JFrame {
                 .addComponent(Button_overtimeeligible)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Button_payslip)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 464, Short.MAX_VALUE)
                 .addComponent(Button_Exit))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(Panel_Count, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(Panel_Count, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
